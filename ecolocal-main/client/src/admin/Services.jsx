@@ -19,12 +19,12 @@ const T = {
   inkMuted: "#7a9b7e",
 };
 
+const PLACEHOLDER = "https://placehold.co/80x80?text=No+Image";
 const resolveImage = (images) => {
-  if (!images || images.length === 0) return "http://localhost:5000/uploads/default.png";
+  if (!images || images.length === 0) return PLACEHOLDER;
   const src = images[0];
   if (src.startsWith("http") || src.startsWith("blob")) return src;
-  if (src.startsWith("/")) return `http://localhost:5000${src}`;
-  return `http://localhost:5000/uploads/${src}`;
+  return PLACEHOLDER;
 };
 
 /* ═══════════════════ Component ═══════════════════ */
@@ -310,7 +310,7 @@ const Services = () => {
                   {/* Image */}
                   <td style={{ padding: "14px 18px", borderBottom: `1px solid rgba(44,92,50,0.07)`, verticalAlign: "middle" }}>
                     <img
-                      src={s.mainImage ? (s.mainImage.startsWith('/') ? `http://localhost:5000${s.mainImage}` : `http://localhost:5000/uploads/${s.mainImage}`) : "http://localhost:5000/uploads/default.png"} 
+                      src={s.mainImage?.startsWith('http') ? s.mainImage : PLACEHOLDER}
                       alt={s.serviceName}
                       style={{
                         width: "52px", height: "52px", objectFit: "cover",
@@ -318,7 +318,7 @@ const Services = () => {
                         border: `2px solid rgba(61,120,69,0.2)`,
                         boxShadow: "0 2px 8px rgba(13,33,16,0.1)",
                       }}
-                      onError={(e) => (e.currentTarget.src = "http://localhost:5000/uploads/default.png")}
+                      onError={(e) => (e.currentTarget.src = PLACEHOLDER)}
                     />
                   </td>
                   {/* Name */}

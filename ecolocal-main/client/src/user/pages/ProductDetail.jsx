@@ -6,13 +6,13 @@ import { useWishlist } from '../context/WishlistContext';
 import BottomNav from '../components/BottomNav';
 import '../styles/user.css';
 
-const BACKEND_URL = 'http://localhost:5000';
+const PLACEHOLDER = 'https://placehold.co/600x800?text=No+Image';
 
 const getImageUrl = (img) => {
-  if (!img) return null;
+  if (!img) return PLACEHOLDER;
+  // Cloudinary URLs start with https:// — use directly
   if (img.startsWith('http')) return img;
-  if (img.startsWith('/')) return `${BACKEND_URL}${img}`;
-  return `${BACKEND_URL}/uploads/${img}`;
+  return PLACEHOLDER;
 };
 
 const Toast = ({ msg, type }) =>

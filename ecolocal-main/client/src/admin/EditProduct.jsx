@@ -3,13 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getProductById, updateProduct } from "../services/productService";
 import { uploadImage } from "../services/uploadService.jsx";
 
-const BACKEND_URL = 'http://localhost:5000';
-
 const getImageUrl = (img) => {
   if (!img) return null;
-  if (img.startsWith('http')) return img;
-  if (img.startsWith('/')) return `${BACKEND_URL}${img}`;
-  return `${BACKEND_URL}/uploads/${img}`;
+  if (img.startsWith('http')) return img; // Cloudinary URL
+  return null;
 };
 
 const EditProduct = () => {
@@ -245,7 +242,7 @@ const EditProduct = () => {
                 <div style={{ display: "flex", gap: "12px", marginTop: "12px", flexWrap: "wrap" }}>
                   {cv.images.map((img, iIndex) => (
                     <div key={iIndex} style={{ ...styles.imgWrap, border: formData.mainImage === img ? "3px solid var(--shop-primary)" : "1px solid #ddd" }}>
-                      <img src={`http://localhost:5000${img}`} alt="Gallery" style={styles.imgPreview} />
+                      <img src={img.startsWith('http') ? img : ''} alt="Gallery" style={styles.imgPreview} />
                       <div style={styles.imgActions}>
                         <button 
                           type="button" 

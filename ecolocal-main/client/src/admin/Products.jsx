@@ -20,12 +20,13 @@ const T = {
 };
 
 /* ─── Resolve image URL ─── */
+const PLACEHOLDER = "https://placehold.co/80x80?text=No+Image";
 const resolveImage = (images) => {
-  if (!images || images.length === 0) return "http://localhost:5000/uploads/default.png";
+  if (!images || images.length === 0) return PLACEHOLDER;
   const src = images[0];
+  // Cloudinary URLs start with https:// — use directly
   if (src.startsWith("http") || src.startsWith("blob")) return src;
-  if (src.startsWith("/")) return `http://localhost:5000${src}`;
-  return `http://localhost:5000/uploads/${src}`;
+  return PLACEHOLDER;
 };
 
 /* ═══════════════════ Component ═══════════════════ */
@@ -336,7 +337,7 @@ const Products = () => {
                           border: `2px solid rgba(61,120,69,0.2)`,
                           boxShadow: "0 2px 8px rgba(13,33,16,0.1)",
                         }}
-                        onError={(e) => (e.currentTarget.src = "http://localhost:5000/uploads/default.png")}
+                        onError={(e) => (e.currentTarget.src = PLACEHOLDER)}
                       />
                     </td>
                     <td style={{ padding: "14px 20px", borderBottom: `1px solid rgba(44,92,50,0.07)`, verticalAlign: "middle" }}>

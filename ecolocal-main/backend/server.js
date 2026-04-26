@@ -78,8 +78,7 @@ console.log('🔄 Loading vision search routes ...');
 const visionRoutes = require('./bmodels/routes/visionRoutes');
 app.use('/api/vision-search', visionRoutes);
 
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-console.log('✅ Uploads & static folder loaded');
+// Static /uploads folder removed — all images served from Cloudinary
 
 // 4) Root test route (optional)
 app.get('/', (req, res) => {

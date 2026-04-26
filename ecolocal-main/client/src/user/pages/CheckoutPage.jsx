@@ -5,11 +5,10 @@ import { createOrder } from '../services/orderService';
 import BottomNav from '../components/BottomNav';
 import '../styles/user.css';
 
-const IMAGE_BASE = 'http://localhost:5000/uploads/';
 const getImageUrl = (img) => {
   if (!img) return null;
-  if (img.startsWith('http')) return img;
-  return `${IMAGE_BASE}${img}`;
+  if (img.startsWith('http')) return img; // Cloudinary URL
+  return null;
 };
 
 const PAYMENT_METHODS = [
