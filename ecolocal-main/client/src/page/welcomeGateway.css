@@ -1,0 +1,357 @@
+/* welcomeGateway.css - Premium Post-Login Hub Styling */
+
+.eco-welcome-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  overflow-x: hidden;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero Section */
+.hero-welcome-container {
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 80px 20px 60px;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 0%, rgba(26,61,31,0.0) 0%, rgba(8,24,10,0.7) 100%),
+    radial-gradient(ellipse 80% 60% at 20% 60%, rgba(29,70,22,0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 40%, rgba(14,48,18,0.45) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, #0d2e10 0%, #1a4d1c 30%, #2c6b30 60%, #1a4018 80%, #0a2010 100%);
+  margin-bottom: 60px;
+}
+
+/* Canopy texture — layered leaf silhouettes */
+.hero-welcome-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 3% 5% at 12% 18%, rgba(109,191,116,0.22) 0%, transparent 100%),
+    radial-gradient(ellipse 4% 6% at 28% 8%,  rgba(86,163,97,0.18) 0%, transparent 100%),
+    radial-gradient(ellipse 5% 7% at 55% 12%, rgba(109,191,116,0.15) 0%, transparent 100%),
+    radial-gradient(ellipse 3% 4% at 72% 6%,  rgba(86,163,97,0.20) 0%, transparent 100%),
+    radial-gradient(ellipse 6% 8% at 88% 22%, rgba(109,191,116,0.16) 0%, transparent 100%),
+    radial-gradient(ellipse 4% 5% at 6%  38%, rgba(86,163,97,0.12) 0%, transparent 100%),
+    radial-gradient(ellipse 3% 4% at 44% 28%, rgba(109,191,116,0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 5% 6% at 92% 45%, rgba(86,163,97,0.11) 0%, transparent 100%),
+    radial-gradient(ellipse 2% 3% at 18% 52%, rgba(109,191,116,0.10) 0%, transparent 100%),
+    radial-gradient(ellipse 4% 5% at 65% 55%, rgba(86,163,97,0.09) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Soft light shaft */
+.hero-welcome-container::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 35%; right: 35%;
+  height: 65%;
+  background: linear-gradient(to bottom, rgba(200,240,180,0.07) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-glass-card {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  padding: 40px 60px;
+  background: #e8f0e9;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* UPDATED: !important ensures color overrides any global h1 or theme styles */
+.hero-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3.8rem;
+  font-weight: 700 !important;
+  color: #0f4d2f !important;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 8px rgba(15, 77, 47, 0.1) !important;
+}
+
+.hero-username {
+  font-size: 1.5rem;
+  color: #1a3d1f;
+  font-weight: 400;
+  margin: 0;
+}
+
+.hero-username strong {
+  color: #0f4d2f;
+  font-weight: 600;
+}
+
+/* ADDED: Explicit username highlight class for branding consistency */
+.username-highlight {
+  color: #0f4d2f;
+  font-weight: 600;
+}
+
+/* Choice Cards Section */
+.choice-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Wrapper for the choices + stats area to have the pastel background */
+.choices-wrapper {
+  background: #e8f0e9;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+/* Pastel atmosphere gradients */
+.choices-wrapper::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 50% 70% at 5% 50%,  rgba(141,197,148,0.25), transparent 60%),
+    radial-gradient(ellipse 35% 50% at 95% 20%, rgba(196,228,199,0.30), transparent 55%),
+    radial-gradient(ellipse 30% 40% at 55% 95%, rgba(168,212,174,0.20), transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Watermark */
+.choices-wrapper::after {
+  content: 'ECO';
+  position: absolute;
+  bottom: -2rem; right: 5vw;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(8rem, 20vw, 22rem);
+  font-weight: 900;
+  color: rgba(61,120,69,0.06);
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  z-index: 0;
+}
+
+.choice-card {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid #f0fdf4;
+  display: flex;
+  flex-direction: column;
+}
+
+.choice-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 50px rgba(22, 101, 52, 0.12);
+  border-color: #86efac;
+}
+
+.card-image-wrap {
+  height: 240px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.choice-card:hover .card-image-wrap img {
+  transform: scale(1.1);
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.4));
+}
+
+.card-content {
+  padding: 30px;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 10px;
+}
+
+.card-subtitle {
+  font-size: 1.05rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.card-cta {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: #166534;
+  gap: 8px;
+  transition: gap 0.3s ease;
+}
+
+.choice-card:hover .card-cta {
+  gap: 14px;
+}
+
+/* Stats Strip */
+.stats-strip-container {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.stats-strip {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(134, 239, 172, 0.3);
+  border-radius: 50px;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #166534;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 30px;
+  background: rgba(134, 239, 172, 0.5);
+}
+
+/* Footer override */
+.gateway-footer {
+  margin-top: auto;
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+  .hero-heading {
+    font-size: 2.8rem;
+  }
+
+  .choice-cards-container {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .choice-cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .choice-card {
+    width: 100%;
+    max-width: 450px;
+  }
+
+  .hero-glass-card {
+    padding: 30px 40px;
+  }
+
+  .hero-heading {
+    font-size: 2.2rem;
+  }
+
+  .stats-strip {
+    padding: 15px 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+}
+
+/* Animations for interaction */
+.pulsating-eco {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

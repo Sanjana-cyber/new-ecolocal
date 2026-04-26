@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 animate-up">
+                <h1 class="display-3 fw-bold mb-4">Security Guard <span style="color: var(--primary-red)">Management</span></h1>
+                <p class="lead mb-5 opacity-75">Predict security staffing requirements with precision using our advanced AI-driven management system.</p>
+                <a href="/predict" class="btn btn-primary btn-lg px-5">Get Started</a>
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0">
+                <div class="glass-card" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+                    <h5 class="mb-4 text-white">Staffing Conversion Analytics</h5>
+                    <canvas id="dashboardChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container" style="margin-top: -30px; position: relative; z-index: 2;">
+    <div class="row g-4">
+        {% if history %}
+            <div class="col-12"><h4 class="mb-4">Recent Deployments</h4></div>
+            {% for item in history %}
+            <div class="col-md-4">
+                <div class="glass-card h-100 history-card">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-light text-dark">{{ item.event_type }}</span>
+                        <small class="text-muted">{{ item.timestamp.split(' ')[0] }}</small>
+                    </div>
+                    <h3 class="mb-2">{{ item.predicted_staff }} Guards</h3>
+                    <p class="text-muted small mb-3">Crowd: {{ item.crowd_size }} | Level: {{ item.threat_level }}</p>
+                    <span class="badge bg-{{ item.risk_class }}">{{ item.risk_label }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+<section class="container py-5 mt-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="glass-card text-center p-5">
+                <div class="display-4 mb-3">🛡️</div>
+                <h5>Global Style Guide</h5>
+                <p class="text-muted small">Standardized deployment protocols across all security sectors.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="glass-card text-center p-5">
+                <div class="display-4 mb-3">📊</div>
+                <h5>Modern Layout</h5>
+                <p class="text-muted small">Optimized interfaces for quick data-driven decision making.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="glass-card text-center p-5">
+                <div class="display-4 mb-3">🚀</div>
+                <h5>AI Powered</h5>
+                <p class="text-muted small">Leveraging 40+ data screens for predictive staffing models.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

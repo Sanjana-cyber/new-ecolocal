@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+:root {
+    --primary-red: #e63946;
+    --dark-bg: #14171c;
+    --surface-dark: #1f232b;
+    --surface-light: #ffffff;
+    --text-white: #ffffff;
+    --text-muted: #8e94a0;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: #f8f9fa; /* Light background for the dashboard area */
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Navbar - Inspired by the white header in the image */
+.navbar {
+    background: var(--surface-light);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    padding: 1.2rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #14171c !important;
+    letter-spacing: -0.5px;
+}
+
+.navbar-brand span {
+    color: var(--primary-red);
+}
+
+.nav-link {
+    color: #555 !important;
+    font-weight: 600;
+    margin: 0 10px;
+}
+
+.nav-link:hover {
+    color: var(--primary-red) !important;
+}
+
+/* Hero Section - Dark like the mobile app screen */
+.hero-section {
+    background: var(--dark-bg);
+    color: var(--text-white);
+    padding: 100px 0;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    margin-bottom: -50px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Cards - White/Clean like the compliance/quote cards */
+.glass-card {
+    background: var(--surface-light);
+    border: none;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* History Cards on Dashboard */
+.history-card {
+    border-left: 4px solid var(--primary-red);
+}
+
+/* Stat Values */
+.stat-value {
+    color: #14171c;
+    font-weight: 800;
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Prediction Page - Dark Form Background */
+.predict-container {
+    background: var(--surface-light);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+}
+
+/* Forms */
+.form-control, .form-select {
+    background: #f8f9fa;
+    border: 1px solid #eef0f2;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
+    background: #fff;
+}
+
+/* Buttons - Solid Red */
+.btn-primary {
+    background-color: var(--primary-red) !important;
+    border: none !important;
+    padding: 14px 30px;
+    border-radius: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+}
+
+/* Badges */
+.badge {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.bg-danger { background-color: var(--primary-red) !important; }
+.bg-success { background-color: #2a9d8f !important; }
+.bg-warning { background-color: #e9c46a !important; color: #333 !important; }
+
+/* Result Page Customization */
+.result-header {
+    background: var(--dark-bg);
+    color: white;
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 2rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-up {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Table Style matching "Compliance Status" */
+.table {
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+.table tr {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.table td {
+    border: none;
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.table td:first-child { border-radius: 12px 0 0 12px; }
+.table td:last-child { border-radius: 0 12px 12px 0; }
