@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchProducts } from "../user/services/productService";
 import ProductCard from "../user/components/ProductCard";
 import "../user/styles/HomeFeed.css";
+import API_URL from "../config/api.js";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const BACKEND_URL = "http://localhost:5000";
+  const BACKEND_URL = API_URL;
 
   useEffect(() => {
     const token = localStorage.getItem("token");

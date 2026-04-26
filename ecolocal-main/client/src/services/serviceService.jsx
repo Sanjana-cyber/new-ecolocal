@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/services";
+import API_URL from '../config/api.js';
+const API = `${API_URL}/api/services`;
 
 /**
  * 📦 GET ALL SERVICES (Search + Filter + Pagination)

@@ -1,4 +1,5 @@
-const BASE_URL = 'http://localhost:5000/api';
+import API_URL from '../../config/api.js';
+const BASE_URL = `${API_URL}/api`;
 
 const getHeaders = () => {
   const token = localStorage.getItem('token');

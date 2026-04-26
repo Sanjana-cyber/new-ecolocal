@@ -10,8 +10,11 @@ const cors = require("cors");
 
 const app = express();
 
+// TODO: Once frontend is deployed, add the deployed frontend URL to this array
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173"
+  ],
   credentials: true,
 }));
 

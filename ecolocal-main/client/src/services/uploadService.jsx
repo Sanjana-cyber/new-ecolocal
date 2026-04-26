@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/upload";
+import API_URL from '../config/api.js';
+const API = `${API_URL}/api/upload`;
 
 export const uploadImage = async (fileData, token) => {
   const { data } = await axios.post(API, fileData, {

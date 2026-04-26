@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import API_URL from '../../config/api.js';
 
 const CartContext = createContext(null);
 
@@ -24,7 +25,7 @@ export const CartProvider = ({ children }) => {
 
       setLoading(true);
       try {
-        const res = await fetch('http://localhost:5000/api/cart', {
+        const res = await fetch(`${API_URL}/api/cart`, {
           headers: getHeaders()
         });
         const data = await res.json();
@@ -96,7 +97,7 @@ export const CartProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        await fetch('http://localhost:5000/api/cart', {
+        await fetch(`${API_URL}/api/cart`, {
           method: 'POST',
           headers: getHeaders(),
           body: JSON.stringify({
@@ -124,7 +125,7 @@ export const CartProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        await fetch(`http://localhost:5000/api/cart/${productId}?variantKey=${variantKey || 'default'}`, {
+        await fetch(`${API_URL}/api/cart/${productId}?variantKey=${variantKey || 'default'}`, {
           method: 'DELETE',
           headers: getHeaders()
         });
@@ -148,7 +149,7 @@ export const CartProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        await fetch('http://localhost:5000/api/cart', {
+        await fetch(`${API_URL}/api/cart`, {
           method: 'PUT',
           headers: getHeaders(),
           body: JSON.stringify({ productId, variantKey, quantity })

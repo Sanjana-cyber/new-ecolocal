@@ -237,7 +237,7 @@ const AddService = () => {
             <div style={{ display: "flex", gap: "12px", marginTop: "12px", flexWrap: "wrap" }}>
               {formData.galleryImages.map((img, i) => (
                 <div key={i} style={{ ...styles.imgWrap, border: formData.mainImage === img ? "3px solid var(--shop-primary)" : "1px solid #ddd" }}>
-                  <img src={`http://localhost:5000${img}`} alt="Gallery Preview" style={styles.imgPreview} />
+                  <img src={img.startsWith('http') ? img : img.startsWith('blob:') ? img : ''} alt="Gallery Preview" style={styles.imgPreview} />
                   <div style={styles.imgActions}>
                     <button 
                       type="button" 

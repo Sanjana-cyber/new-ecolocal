@@ -224,7 +224,7 @@ const AddProduct = () => {
                 <div style={{ display: "flex", gap: "12px", marginTop: "12px", flexWrap: "wrap" }}>
                   {cv.images.map((img, iIndex) => (
                     <div key={iIndex} style={{ ...styles.imgWrap, border: formData.mainImage === img ? "3px solid var(--shop-primary)" : "1px solid #ddd" }}>
-                      <img src={`http://localhost:5000${img}`} alt="Gallery" style={styles.imgPreview} />
+                      <img src={img.startsWith('http') ? img : img.startsWith('blob:') ? img : ''} alt="Gallery" style={styles.imgPreview} />
                       <div style={styles.imgActions}>
                         <button 
                           type="button" 

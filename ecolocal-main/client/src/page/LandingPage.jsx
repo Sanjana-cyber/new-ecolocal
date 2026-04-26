@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import API_URL from "../config/api.js";
 
 /* ── Inline SVG Icons ────────────────────────────────── */
 const IconFarm = () => (
@@ -134,8 +135,8 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   try {
     const url = isLogin
-      ? "http://localhost:5000/api/auth/login"
-      : "http://localhost:5000/api/auth/register";
+      ? `${API_URL}/api/auth/login`
+      : `${API_URL}/api/auth/register`;
 
     const { data } = await axios.post(url, formData);
 
@@ -158,7 +159,7 @@ const handleSubmit = async (e) => {
 };
 
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google";
+    window.location.href = `${API_URL}/api/auth/google`;
   };
   /* ──────────────────────────────────────────────────── */
 

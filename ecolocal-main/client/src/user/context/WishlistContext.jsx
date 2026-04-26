@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, useRef } from 'react';
+import API_URL from '../../config/api.js';
 
 const WishlistContext = createContext(null);
 
@@ -29,7 +30,7 @@ export const WishlistProvider = ({ children }) => {
 
       setLoading(true);
       try {
-        const res = await fetch('http://localhost:5000/api/wishlist', {
+        const res = await fetch(`${API_URL}/api/wishlist`, {
           headers: getHeaders()
         });
         const data = await res.json();
@@ -67,7 +68,7 @@ export const WishlistProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        const res = await fetch('http://localhost:5000/api/wishlist', {
+        const res = await fetch(`${API_URL}/api/wishlist`, {
           method: 'POST',
           headers: getHeaders(),
           body: JSON.stringify({ productId: product._id })
@@ -89,7 +90,7 @@ export const WishlistProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        await fetch(`http://localhost:5000/api/wishlist/${productId}`, {
+        await fetch(`${API_URL}/api/wishlist/${productId}`, {
           method: 'DELETE',
           headers: getHeaders()
         });

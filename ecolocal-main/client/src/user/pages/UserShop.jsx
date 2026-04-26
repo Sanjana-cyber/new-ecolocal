@@ -5,6 +5,7 @@ import FilterBar from '../components/FilterBar';
 import CategoryCircles from '../components/CategoryCircles';
 import ProductGrid from '../components/ProductGrid';
 import BottomNav from '../components/BottomNav';
+import API_URL from '../../config/api.js';
 import { fetchProducts } from '../services/productService';
 import '../styles/user.css';
 
@@ -62,7 +63,7 @@ const UserShop = () => {
       const formData = new FormData();
       formData.append('image', file);
 
-      const res = await fetch('http://localhost:5000/api/vision-search', {
+      const res = await fetch(`${API_URL}/api/vision-search`, {
         method: 'POST',
         body: formData,
       });

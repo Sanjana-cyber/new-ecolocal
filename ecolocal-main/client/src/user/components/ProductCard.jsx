@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useWishlist } from "../context/WishlistContext";
 
-const BACKEND_URL = "http://localhost:5000";
+import API_URL from '../../config/api.js';
+const BACKEND_URL = API_URL;
 
 export const getImageUrl = (img) => {
   if (!img) return null;

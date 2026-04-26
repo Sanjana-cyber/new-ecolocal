@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import API_URL from "../config/api.js";
 import axios from "axios";
 
 const ForgotPassword = () => {
@@ -11,7 +13,7 @@ const ForgotPassword = () => {
     try {
 
       await axios.post(
-        "http://localhost:5000/api/users/forgot-password",
+        `${API_URL}/api/users/forgot-password`,
         { email }
       );
 

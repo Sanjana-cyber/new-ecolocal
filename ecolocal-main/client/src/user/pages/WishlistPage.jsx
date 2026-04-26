@@ -4,7 +4,8 @@ import { useCart } from '../context/CartContext';
 import BottomNav from '../components/BottomNav';
 import '../styles/user.css';
 
-const BACKEND_URL = "http://localhost:5000";
+import API_URL from '../../config/api.js';
+const BACKEND_URL = API_URL;
 
 const getImageUrl = (img) => {
   if (!img) return null;
