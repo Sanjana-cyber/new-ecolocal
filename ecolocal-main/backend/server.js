@@ -13,7 +13,7 @@ const app = express();
 // TODO: Once frontend is deployed, add the deployed frontend URL to this array
 app.use(cors({
   origin: [
-    "http://localhost:5173"
+    "https://new-ecolocal.vercel.app"
   ],
   credentials: true,
 }));
@@ -47,11 +47,11 @@ console.log('User routes loaded at /api/users');
 console.log('Loading product routes...');
 const productRoutes = require('./bmodels/routes/productRoutes');
 app.use('/api/products', productRoutes);
-console.log('Product routes loaded at /api/products'); 
+console.log('Product routes loaded at /api/products');
 
 const serviceRoutes = require("./bmodels/routes/serviceRoutes");
 app.use("/api/services", serviceRoutes);
-console.log('Service  routes loaded at /api/servicess'); 
+console.log('Service  routes loaded at /api/servicess');
 
 console.log('🔄 Loading cart routes');
 const cartRoutes = require('./bmodels/routes/cartRoutes');
