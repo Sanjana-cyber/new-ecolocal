@@ -32,8 +32,9 @@ router.get(
 
     const token = generateToken(user._id, user.role);
 
+    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
     res.redirect(
-      `http://localhost:5173/google-success?token=${token}&role=${user.role}&name=${user.name}`
+      `${frontendUrl}/google-success?token=${token}&role=${user.role}&name=${user.name}`
     );
   }
 );
