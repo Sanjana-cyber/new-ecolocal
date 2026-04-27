@@ -345,6 +345,15 @@ const handleSubmit = async (e) => {
               Continue with Google
             </button>
 
+            <button 
+              className="btn-primary" 
+              style={{marginTop: "10px", backgroundColor: "#6c757d", color: "white"}} 
+              onClick={() => navigate('/welcome')} 
+              type="button"
+            >
+              Skip Login & Continue as Guest
+            </button>
+
             <div className="auth-toggle">
               <span>{isLogin ? "New to EcoLocal?" : "Already have an account?"}</span>
               <button onClick={() => setIsLogin(!isLogin)} type="button">
