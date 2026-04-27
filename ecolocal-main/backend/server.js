@@ -12,9 +12,15 @@ const app = express();
 
 // TODO: Once frontend is deployed, add the deployed frontend URL to this array
 app.use(cors({
-  origin: [
-    "https://new-ecolocal.vercel.app"
-  ],
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    // Allow localhost and any vercel.app domain
+    if (!origin || origin.startsWith("http://localhost") || origin.endsWith(".vercel.app") || origin === process.env.FRONTEND_URL) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
 }));
 
