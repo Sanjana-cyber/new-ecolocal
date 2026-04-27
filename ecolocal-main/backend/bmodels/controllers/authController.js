@@ -62,7 +62,9 @@ const register = async (req, res) => {
     console.error('Register error:', error);
     res.status(500).json({
       success: false,
-      message: 'Server error during registration'
+      message: 'Server error during registration',
+      errorDetails: error.message,
+      stack: error.stack
     });
   }
 };
